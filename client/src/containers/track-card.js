@@ -2,6 +2,24 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { gql } from '@apollo/client';
+
+export const TRACKS = gql`
+  query getTracks {
+  tracksForHome {
+    id
+    title
+    thumbnail
+    length
+    modulesCount
+    author {
+      id
+      name
+      photo
+    }
+  }
+}
+`
 
 /**
  * Track Card component renders basic info in a card format
